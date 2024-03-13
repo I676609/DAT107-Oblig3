@@ -1,4 +1,4 @@
-package no.hvl.dat107.Iterasjon1;
+package no.hvl.dat107.Iterasjon2;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import no.hvl.dat107.Iterasjon1.Ansatt;
 
 @Entity
 @Table(schema = "Iterasjon1")
