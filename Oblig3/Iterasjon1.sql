@@ -7,17 +7,17 @@ SET search_path TO Iterasjon1;
 CREATE TABLE Ansatt
 (
 	ansattId INTEGER PRIMARY KEY,
-	ansettelseDato DATE NOT NULL,
+	ansettelsesDato DATE NOT NULL,
 	brukernavn varchar(30) UNIQUE NOT NULL,
 	fornavn varchar(30) NOT NULL,
 	etternavn varchar(30) NOT NULL,
 	stilling varchar(30) NOT NULL,
-	månedslønn DECIMAL NOT NULL
+	manedslonn DECIMAL NOT NULL
 );
 
 
 INSERT INTO
-  Ansatt(ansattId, ansettelseDato, brukernavn, fornavn, etternavn, stilling, månedslønn)
+  Ansatt(ansattId, ansettelsesDato, brukernavn, fornavn, etternavn, stilling, manedslonn)
 VALUES
     (1, '2023-05-10', 'funnyguy87', 'Bob', 'McLaughlin', 'Chief Fun Officer', 10000.00),
     (2, '2022-11-15', 'lolmaster', 'Chad', 'Thunderstorm', 'Director of Memes', 9000.50),
