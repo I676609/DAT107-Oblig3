@@ -21,7 +21,6 @@ public class Ansatt {
 	
 	public Ansatt(int ansattId, String brukernavn, String fornavn, String etternavn, LocalDate ansettelsesDato,
 			String stilling, BigDecimal manedslonn) {
-		super();
 		this.ansattId = ansattId;
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
