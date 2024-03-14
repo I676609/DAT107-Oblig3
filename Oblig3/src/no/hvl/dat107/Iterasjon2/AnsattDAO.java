@@ -1,16 +1,16 @@
 package no.hvl.dat107.Iterasjon2;
 
+import static javax.swing.JOptionPane.showInputDialog;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
-import static javax.swing.JOptionPane.showInputDialog;
 
 public class AnsattDAO {
 
