@@ -12,7 +12,7 @@ public class Main {
 			if (s.contains("Quit") || s.contains("stopp") || s.contains("Stopp")) {
 				kjorer = false;
 			}
-			if (s.contains("Finn ansatt id")) {
+			else if (s.contains("Finn ansatt id")) {
 				AnsattDAO ansattDAO = new AnsattDAO();
 				System.out.println(ansattDAO.finnAnsattMedId(Integer.parseInt(showInputDialog("Skriv inn ansatt id"))));
 
