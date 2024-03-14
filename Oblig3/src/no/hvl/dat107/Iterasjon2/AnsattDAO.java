@@ -1,6 +1,7 @@
 package no.hvl.dat107.Iterasjon2;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -9,14 +10,14 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
+import static javax.swing.JOptionPane.showInputDialog;
 
 public class AnsattDAO {
 
 	private EntityManagerFactory emf;
 
 	public AnsattDAO() {
-		emf = Persistence.createEntityManagerFactory("AnsattPU",
-				Map.of("jakarta.persistence.jdbc.password", "123ivan123"));
+		emf = Persistence.createEntityManagerFactory("firmaPU");
 	}
 
 	/* --------------------------------------------------------------------- */
@@ -155,5 +156,12 @@ public class AnsattDAO {
 		} finally {
 			em.close();
 		}
+	}
+
+	public void leggTilAnsatt() {
+		leggTilAnsatt(new Ansatt(Integer.parseInt(showInputDialog("AnsattId:")), showInputDialog("Brukernavn:"),
+				showInputDialog("Fornavn:"), showInputDialog("Etternavn"),
+				LocalDate.parse(showInputDialog("AnsettelsesDato: (yyyy-mm-dd")), showInputDialog("Stilling:"),
+				BigDecimal.valueOf(Double.parseDouble(showInputDialog("Månedslønn:")))));
 	}
 }

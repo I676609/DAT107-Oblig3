@@ -6,7 +6,6 @@
 
 	<persistence-unit name="firmaPU" transaction-type="RESOURCE_LOCAL">
 	
-		<class>no.hvl.dat107.Iterasjon1.Ansatt</class>
 		<class>no.hvl.dat107.Iterasjon2.Ansatt</class>
 
 		<properties>
