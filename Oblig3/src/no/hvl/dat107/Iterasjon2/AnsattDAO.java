@@ -159,11 +159,14 @@ public class AnsattDAO {
 	}
 
 	public void leggTilAnsatt() {
-		leggTilAnsatt(new Ansatt(Integer.parseInt(showInputDialog("AnsattId:")),
-				showInputDialog("Brukernavn:"),
-				showInputDialog("Fornavn:"), showInputDialog("Etternavn"),
-				LocalDate.parse(showInputDialog("AnsettelsesDato: (yyyy-mm-dd")),
-				showInputDialog("Stilling:"),
-				BigDecimal.valueOf(Double.parseDouble(showInputDialog("Månedslønn:")))));
+		Ansatt ansatt = new Ansatt();
+		ansatt.setAnsattId(Integer.parseInt(showInputDialog("AnsattId:")));
+		ansatt.setBrukernavn(showInputDialog("Brukernavn:"));
+		ansatt.setFornavn(showInputDialog("Fornavn:"));
+		ansatt.setEtternavn(showInputDialog("Etternavn"));
+		ansatt.setAnsettelseDato(LocalDate.parse(showInputDialog("AnsettelsesDato: (yyyy-mm-dd")));
+		ansatt.setStilling(showInputDialog("Stilling:"));
+		ansatt.setManedslonn(BigDecimal.valueOf(Double.parseDouble(showInputDialog("Månedslønn:"))));
+		leggTilAnsatt(ansatt);
 	}
 }
