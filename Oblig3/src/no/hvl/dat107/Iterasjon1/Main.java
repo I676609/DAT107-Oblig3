@@ -1,40 +1,20 @@
 package no.hvl.dat107.Iterasjon1;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
 public class Main {
 
 	public static void main(String[] args) {
-		
-
-		//a) Søke opp vitnemålet til en gitt student.
-
-		
-		//b) Søke opp karakteren til en gitt student i et gitt kurs.
-
-		
-		//c) Registrere en ny karakter for en gitt student 
-		//		når karakter ikke finnes fra før.
-		
-		
-		//d) Registrere en ny karakter for en gitt student
-		//		når karakter finnes fra før. Samme metode som i sted.
-		
-		
-		//"TEST"
-//		List<Karakter> hmmm = vitnemalDAO.hentKarakterlisteForFerdige("DAT107");
-//		hmmm.forEach(System.out::println);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("firmaPU");
+		EntityManager em = emf.createEntityManager();
+		// a) Hente ut en ansatt
+		try {
+			System.out.println(em.find(Ansatt.class, 1));
+		} finally {
+			em.close();
+		}
 	}
-	
-//	private static Scanner scanner = new Scanner(System.in);
-//	private static void pauseOgSjekkDatabasen(String prompt) {
-//		System.out.println(prompt);
-//		System.out.println("Trykk \"ENTER\" for å fortsette ...");
-//		scanner.nextLine();
-//	}
-	
 
 }
-
-
-
-
-

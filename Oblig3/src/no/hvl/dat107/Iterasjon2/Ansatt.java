@@ -1,4 +1,4 @@
-package no.hvl.dat107.Iterasjon1;
+package no.hvl.dat107.Iterasjon2;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
