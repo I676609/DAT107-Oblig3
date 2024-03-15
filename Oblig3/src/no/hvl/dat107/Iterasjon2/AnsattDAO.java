@@ -44,7 +44,7 @@ public class AnsattDAO {
 					Ansatt.class);
 			query.setParameter("brukernavn", brukernavn);
 			return query.getSingleResult();
-		} catch(NoResultException e) {
+		} catch (NoResultException e) {
 			return null;
 		} finally {
 			em.close();
