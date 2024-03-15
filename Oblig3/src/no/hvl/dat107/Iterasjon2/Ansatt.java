@@ -23,9 +23,9 @@ public class Ansatt {
 
 	@Override
 	public String toString() {
-		return "Ansatt [ansattId=" + ansattId + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
-				+ etternavn + ", ansettelsesDato=" + ansettelsesDato + ", stilling=" + stilling + ", månedslønn="
-				+ manedslonn + "]";
+		return "Ansatt:\nAnsattId: " + ansattId + "\nBrukernavn: " + brukernavn + "\nFornavn: " + fornavn + "\nEtternavn: "
+				+ etternavn + "\nAnsettelsesDato: " + ansettelsesDato + "\nStilling: " + stilling + "\nMånedslønn: "
+				+ manedslonn + "\n";
 	}
 
 	public int getAnsattId() {
