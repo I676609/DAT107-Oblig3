@@ -2,6 +2,8 @@ package no.hvl.dat107.Iterasjon2;
 
 import static javax.swing.JOptionPane.showInputDialog;
 
+import java.math.BigDecimal;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -13,17 +15,17 @@ public class Main {
 
 			if (s.toLowerCase().contains("quit") || s.toLowerCase().contains("stopp")) {
 				kjorer = false;
-			} else if (s.contains("Finn ansatt id") || s.toLowerCase().contains("id")) {
+			} else if (s.toLowerCase().contains("id")) {
 				System.out.println(ansattDAO.finnAnsattMedId(Integer.parseInt(showInputDialog("Skriv inn ansatt id"))));
 
-			} else if (s.toLowerCase().contains("finn ansatt brukernavn") || s.toLowerCase().contains("brukernavn")) {
+			} else if (s.toLowerCase().contains("brukernavn")) {
 				System.out.println(ansattDAO.finnAnsattMedBrukernavn(showInputDialog("Skriv inn burkernavn")));
 			} else if (s.toLowerCase().contains("skriv ut alle") || s.toLowerCase().contains("alle")) {
 				for (Ansatt a : ansattDAO.finnAlleAnsatte()) {
 					a.skrivUt();
 				}
-			} else if (s.toLowerCase().contains("oppdater stilling")) {
-				String a = showInputDialog("Id eller Brukernavn?");
+			} else if (s.toLowerCase().contains("stilling")) {
+				String a = showInputDialog("Oppdater via ID eller Brukernavn?");
 				if (a.toLowerCase().contains("id")) {
 					ansattDAO.oppdaterAnsattStilling(Integer.parseInt(showInputDialog("ansattId?")),
 							showInputDialog("Skriv inn ny stilling"));
@@ -33,10 +35,21 @@ public class Main {
 				} else {
 					System.out.println("Ulovelig input!!");
 				}
+			} else if (s.toLowerCase().contains("lønn")) {
+				String a = showInputDialog("Oppdater via ID eller Brukernavn?");
+				if (a.toLowerCase().contains("id")) {
+					ansattDAO.oppdaterAnsattLonn(Integer.parseInt(showInputDialog("Ansattid?")),
+							BigDecimal.valueOf(Double.parseDouble(showInputDialog("Skriv inn ny lønn:"))));
+				} else if (a.toLowerCase().contains("brukernavn")) {
+					ansattDAO.oppdaterAnsattLonn(showInputDialog("Brukernavn?"),
+							BigDecimal.valueOf(Double.parseDouble(showInputDialog("Skriv inn ny lønn:"))));
+
+				} else {
+					System.out.println("Ulovelig input!!");
+				}
 			}
 
 		}
 
-		// Hente ut en ansattBru
 	}
 }
