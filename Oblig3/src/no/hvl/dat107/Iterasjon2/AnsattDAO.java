@@ -9,6 +9,7 @@ import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
@@ -42,8 +43,9 @@ public class AnsattDAO {
 			TypedQuery<Ansatt> query = em.createQuery("select a from Ansatt a where a.brukernavn = :brukernavn",
 					Ansatt.class);
 			query.setParameter("brukernavn", brukernavn);
-			List<Ansatt> liste = query.getResultList();
-			return liste.isEmpty() ? null : liste.get(0);
+			return query.getSingleResult();
+		} catch(NoResultException e) {
+			return null;
 		} finally {
 			em.close();
 		}

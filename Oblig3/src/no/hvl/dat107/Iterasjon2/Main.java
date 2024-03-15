@@ -10,7 +10,7 @@ public class Main {
 			AnsattDAO ansattDAO = new AnsattDAO();
 			String s = showInputDialog(
 					"Hva ønsker du å gjøre? \n Finn ansatt id/brukernavn, Skriv ut alle ansatte, Oppdater, Stilling, lønn, Legg til ny ansatt");
-			
+
 			if (s.contains("Quit") || s.contains("stopp") || s.contains("Stopp")) {
 				kjorer = false;
 			} else if (s.contains("Finn ansatt id") || s.contains("id") || s.contains("Id")) {
