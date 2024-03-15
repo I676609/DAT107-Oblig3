@@ -39,7 +39,7 @@ public class AnsattDAO {
 		EntityManager em = emf.createEntityManager();
 
 		try {
-			TypedQuery<Ansatt> query = em.createQuery("select a from Ansatt a where a.brukernavn like :brukernavn",
+			TypedQuery<Ansatt> query = em.createQuery("select a from Ansatt a where a.brukernavn = :brukernavn",
 					Ansatt.class);
 			query.setParameter("brukernavn", brukernavn);
 			List<Ansatt> liste = query.getResultList();
