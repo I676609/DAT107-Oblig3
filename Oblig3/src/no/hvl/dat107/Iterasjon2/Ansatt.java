@@ -25,7 +25,7 @@ public class Ansatt {
 	public String toString() {
 		return "Ansatt:\nAnsattId: " + ansattId + "\nBrukernavn: " + brukernavn + "\nFornavn: " + fornavn + "\nEtternavn: "
 				+ etternavn + "\nAnsettelsesDato: " + ansettelsesDato + "\nStilling: " + stilling + "\nMånedslønn: "
-				+ manedslonn + "\n";
+				+ manedslonn;
 	}
 
 	public int getAnsattId() {
