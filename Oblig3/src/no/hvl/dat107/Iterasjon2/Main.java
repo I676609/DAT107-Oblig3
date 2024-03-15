@@ -13,7 +13,7 @@ public class Main {
 
 			if (s.toLowerCase().contains("quit") || s.toLowerCase().contains("stopp")) {
 				kjorer = false;
-			} else if (s.contains("Finn ansatt id") || s.contains("id") || s.contains("Id")) {
+			} else if (s.contains("Finn ansatt id") || s.toLowerCase().contains("id")) {
 				System.out.println(ansattDAO.finnAnsattMedId(Integer.parseInt(showInputDialog("Skriv inn ansatt id"))));
 
 			} else if (s.toLowerCase().contains("finn ansatt brukernavn") || s.toLowerCase().contains("brukernavn")) {
