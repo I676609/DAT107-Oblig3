@@ -9,7 +9,11 @@ public class Main {
 		while (kjorer) {
 			AnsattDAO ansattDAO = new AnsattDAO();
 			String s = showInputDialog(
+<<<<<<< Updated upstream
 					"Hva ønsker du å gjøre? \n Finn ansatt id/brukernavn, Skriv ut alle ansatte, Oppdater, Stilling, lønn, Legg til ny ansatt");
+=======
+					"Hva ønsker du å gjøre? \n Finn ansatt id/brukernavn, Skriv ut alle ansatte, Oppdater Stilling/lønn, Legg til ny ansatt");
+>>>>>>> Stashed changes
 			if (s.contains("Quit") || s.contains("stopp") || s.contains("Stopp")) {
 				kjorer = false;
 			}
@@ -22,6 +26,6 @@ public class Main {
 			}
 		}
 
-		// Hente ut en ansatt
+		// Hente ut en ansattBru
 	}
 }
