@@ -8,11 +8,7 @@ import no.hvl.dat107.Iterasjon2.AnsattDAO;
 public class Main {
 
 	public static void main(String[] args) {
-		Ansatt jens = new Ansatt();
-		AnsattDAO ansattDAO = new AnsattDAO();
-//		ansattDAO.leggTilAnsatt(jens);
-		ansattDAO.leggTilAnsatt();
-		
+
 		
 	}
 
