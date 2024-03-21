@@ -12,11 +12,25 @@ CREATE TABLE Ansatt
 	fornavn varchar(30) NOT NULL,
 	etternavn varchar(30) NOT NULL,
 	stilling varchar(30) NOT NULL,
-	manedslonn DECIMAL NOT NULL
-	avdelingId Integer 
+	manedslonn DECIMAL NOT NULL,
+	avdelingId Integer
 	
 );
 
+
+
+Select * from Ansatt;
+
+
+
+   CREATE TABLE Avdeling
+(
+	avdelingId SERIAL PRIMARY KEY,
+	navn varchar(30) NOT NULL,
+	sjef INTEGER REFERENCES Ansatt(ansattId)
+);
+ ALTER TABLE Ansatt
+ ADD CONSTRAINT FOREIGN KEY(avdelingID) REFERENCES Avdeling(avdelingId)
 
 INSERT INTO
   Ansatt(ansattId, ansettelsesDato, brukernavn, fornavn, etternavn, stilling, manedslonn)
@@ -28,28 +42,13 @@ VALUES
     (5, '2023-09-03', 'jokesterjohn', 'John', 'Whimsy', 'Minister of Laughter', 11000.25);
 
 
-Select * from Ansatt;
-
-
-
-   CREATE TABLE Avdeling
-(
-	avdelingId SERIAL PRIMARY KEY,
-	navn varchar(30) NOT NULL,
-	sjef INTEGER NOT NULL FOREIGN KEY,
-);
-
-
-INSERT INTO
-  avdeling(avdelingId, navn, sjef)
+INSERT INTO avdeling(avdelingId, navn, avdelingID)
 VALUES
-INSERT INTO avdeling(avdelingId, navn, sjef)
-VALUES
-  (1, 'Innovation Hub', 101),
+  (1, 'Innovation Hub', 1),
   (2, 'Cybernetic Solutions', 102),
   (3, 'Galactic Ventures', 103),
   (4, 'FutureTech Industries', 104),
   (5, 'Quantum Dynamics', 105);
 
 
-Select * from Avdeling;
+Select * from Avdeling, Ansatt;
