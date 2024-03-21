@@ -7,8 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
 @Table(schema = "Iterasjon1")
+@Entity
 public class Ansatt {
 	@Id
 	private int ansattId;

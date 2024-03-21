@@ -47,6 +47,9 @@ public class Main {
 				} else {
 					System.out.println("Ulovelig input!!");
 				}
+			} else if (s.toLowerCase().contains("legg til ansatt")) {
+				ansattDAO.leggTilAnsatt();
+				System.out.println("Ny ansatt lagt til!");
 			}
 
 		}
