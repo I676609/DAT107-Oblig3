@@ -1,11 +1,7 @@
 package no.hvl.dat107.Iterasjon3;
 
-import java.util.List;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-import no.hvl.dat107.Iterasjon2.Ansatt;
-import no.hvl.dat107.Iterasjon2.AnsattDAO;
 
 public class Main {
 
