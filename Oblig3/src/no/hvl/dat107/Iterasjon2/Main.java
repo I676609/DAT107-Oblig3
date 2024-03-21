@@ -13,7 +13,7 @@ public class Main {
 			String s = showInputDialog(
 					"Hva ønsker du å gjøre?\nFinn ansatt id/brukernavn, Skriv ut alle ansatte, Oppdater, stilling, lønn, Legg til ny ansatt");
 
-			if (s.toLowerCase().contains("quit") || s.toLowerCase().contains("stopp")) {
+			if (s == null || s.toLowerCase().contains("quit") || s.toLowerCase().contains("stopp")) {
 				kjorer = false;
 			} else if (s.toLowerCase().contains("id")) {
 				System.out.println(ansattDAO.finnAnsattMedId(Integer.parseInt(showInputDialog("Skriv inn ansatt id"))));
