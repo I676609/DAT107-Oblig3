@@ -5,22 +5,20 @@ import static javax.swing.JOptionPane.showInputDialog;
 import java.math.BigDecimal;
 
 public class Main {
-
+	private static AnsattDAO ansattDAO;
+	
 	public static void main(String[] args) {
 		Boolean kjorer = true;
 		while (kjorer) {
-			AnsattDAO ansattDAO = new AnsattDAO();
+			ansattDAO = new AnsattDAO();
 			String s = showInputDialog(
-					"Hva ønsker du å gjøre?\nFinn ansatt id/brukernavn, Skriv ut alle ansatte, Oppdater, stilling, lønn, Legg til ny ansatt");
+					"Hva ønsker du å gjøre?\nFinn (Finner en ansatt)\nAlle (Skriver ut alle ansatte)\nOppdater, stilling, lønn, Legg til ny ansatt");
 
 			if (s == null || s.toLowerCase().contains("quit") || s.toLowerCase().contains("stopp")) {
 				kjorer = false;
-			} else if (s.toLowerCase().contains("id")) {
-				System.out.println(ansattDAO.finnAnsattMedId(Integer.parseInt(showInputDialog("Skriv inn ansatt id"))));
-
-			} else if (s.toLowerCase().contains("brukernavn")) {
-				System.out.println(ansattDAO.finnAnsattMedBrukernavn(showInputDialog("Skriv inn burkernavn")));
-			} else if (s.toLowerCase().contains("skriv ut alle") || s.toLowerCase().contains("alle")) {
+			} else if (s.toLowerCase().contains("finn")) {
+				finnAnsatt();
+			} else if (s.toLowerCase().contains("alle")) {
 				for (Ansatt a : ansattDAO.finnAlleAnsatte()) {
 					a.skrivUt();
 				}
@@ -33,7 +31,7 @@ public class Main {
 					ansattDAO.oppdaterAnsattStilling(showInputDialog("Brukernavn?"),
 							showInputDialog("Skriv inn ny stilling"));
 				} else {
-					System.out.println("Ulovelig input!!");
+					System.out.println("Ulovlig input!!");
 				}
 			} else if (s.toLowerCase().contains("lønn")) {
 				String a = showInputDialog("Oppdater via ID eller Brukernavn?");
@@ -45,7 +43,7 @@ public class Main {
 							BigDecimal.valueOf(Double.parseDouble(showInputDialog("Skriv inn ny lønn:"))));
 
 				} else {
-					System.out.println("Ulovelig input!!");
+					System.out.println("Ulovlig input!!");
 				}
 			} else if (s.toLowerCase().contains("legg til ansatt")) {
 				ansattDAO.leggTilAnsatt();
@@ -54,5 +52,27 @@ public class Main {
 
 		}
 
+	}
+
+	private static void finnAnsatt() {
+		String s = showInputDialog("Vil du finne ansatt via brukernavn eller ID?");
+		if (s.toLowerCase().contains("id")) {
+			System.out.println(ansattDAO.finnAnsattMedId(Integer.parseInt(showInputDialog("Skriv inn ansatt id"))));
+		} else if (s.toLowerCase().contains("brukernavn")) {
+			System.out.println(ansattDAO.finnAnsattMedBrukernavn(showInputDialog("Skriv inn burkernavn")));
+		} else {
+			System.out.println("Ulovlig input!!");
+		}
+	}
+	
+	private static void oppdaterStilling() {
+		String s = showInputDialog("Oppdater via ID eller Brukernavn?");
+		if (s.toLowerCase().contains("id")) {
+			System.out.println(ansattDAO.finnAnsattMedId(Integer.parseInt(showInputDialog("Skriv inn ansatt id"))));
+		} else if (s.toLowerCase().contains("brukernavn")) {
+			System.out.println(ansattDAO.finnAnsattMedBrukernavn(showInputDialog("Skriv inn burkernavn")));
+		} else {
+			System.out.println("Ulovlig input!!");
+		}
 	}
 }

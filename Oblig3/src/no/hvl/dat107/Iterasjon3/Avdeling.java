@@ -20,11 +20,15 @@ public class Avdeling {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int avdelingsId;
 	private String avdelingsnavn;
+
+	@ManyToOne
+	@JoinColumn(name = "ansattId")
 	private Ansatt leder;
-	
-	public Avdeling() {}
-	
-	public Avdeling (int avdelingsId, String avdelingsnavn, Ansatt leder) {
+
+	public Avdeling() {
+	}
+
+	public Avdeling(int avdelingsId, String avdelingsnavn, Ansatt leder) {
 		this.avdelingsId = avdelingsId;
 		this.avdelingsnavn = avdelingsnavn;
 		this.leder = leder;
@@ -54,21 +58,8 @@ public class Avdeling {
 		this.leder = leder;
 	}
 
-	public Avdeling getAvdeling() {
-		return avdeling;
-	}
-
-	public void setAvdeling(Avdeling avdeling) {
-		this.avdeling = avdeling;
-	}
-
 	@Override
 	public String toString() {
 		return "AvdelingsID [aID=" + avdelingsId + ", Avdelingsnavn=" + avdelingsnavn + ", Leder=" + leder + "]";
 	}
-
-
-	@ManyToOne
-	@JoinColumn(name = "ansattId")
-	private Avdeling avdeling;
 }
