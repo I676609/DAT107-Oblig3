@@ -21,6 +21,19 @@ public class Ansatt {
 	
 	
 
+	public Ansatt() {}
+
+	public Ansatt(int ansattId, String brukernavn, String fornavn, String etternavn, LocalDate ansettelsesDato,
+			String stilling, BigDecimal manedslonn) {
+		this.ansattId = ansattId;
+		this.brukernavn = brukernavn;
+		this.fornavn = fornavn;
+		this.etternavn = etternavn;
+		this.ansettelsesDato = ansettelsesDato;
+		this.stilling = stilling;
+		this.manedslonn = manedslonn;
+	}
+
 	@Override
 	public String toString() {
 		return "Ansatt:\nAnsattId: " + ansattId + "\nBrukernavn: " + brukernavn + "\nFornavn: " + fornavn + "\nEtternavn: "
