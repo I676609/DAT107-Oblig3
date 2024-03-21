@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import no.hvl.dat107.Iterasjon1.Ansatt;
 
@@ -17,7 +18,10 @@ public class Avdeling {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int karnr;
+	private int avdelingsId;
+	private String avdelingsnavn;
+	@OneToOne
+	private Ansatt leder;
 
 	@Override
 	public String toString() {
