@@ -15,7 +15,7 @@ public class Main {
 	}
 	
 	public void lagEksempler() {
-		Ansatt anakinSkywalker = new Ansatt(1, "anakinskywalker", "Anakin", "Skywalker", LocalDate.of(2005, 03, 05), "The Chosen One", BigDecimal.valueOf(500000));
+		Ansatt anakinSkywalker = new Ansatt(0, "anakinskywalker", "Anakin", "Skywalker", LocalDate.of(2005, 03, 05), "The Chosen One", BigDecimal.valueOf(500000));
 		Ansatt lukeSkywalker = new Ansatt(1, "lukeskywalker", "Luke", "Skywalker", LocalDate.of(1977, 5, 25), "Jedi Knight", BigDecimal.valueOf(100000));
 		Ansatt leiaOrgana = new Ansatt(2, "leiaorgana", "Leia", "Organa", LocalDate.of(1977, 5, 25), "General", BigDecimal.valueOf(95000));
 		Ansatt hanSolo = new Ansatt(3, "hansolo", "Han", "Solo", LocalDate.of(1977, 5, 25), "Smuggler", BigDecimal.valueOf(90000));
@@ -27,5 +27,8 @@ public class Main {
 		Ansatt maceWindu = new Ansatt(9, "macewindu", "Mace", "Windu", LocalDate.of(1977, 5, 25), "Jedi Master", BigDecimal.valueOf(105000));
 		Ansatt emperorPalpatine = new Ansatt(10, "emperorpalpatine", "Emperor", "Palpatine", LocalDate.of(1977, 5, 25), "Galactic Emperor", BigDecimal.valueOf(200000));
 
+		Avdeling tattoine = new Avdeling();
+		Avdeling endor = new Avdeling();
+		Avdeling hoth = new Avdeling();
 	}
 }
