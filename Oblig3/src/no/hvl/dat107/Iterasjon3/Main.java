@@ -27,8 +27,8 @@ public class Main {
 		Ansatt maceWindu = new Ansatt(9, "macewindu", "Mace", "Windu", LocalDate.of(1977, 5, 25), "Jedi Master", BigDecimal.valueOf(105000));
 		Ansatt emperorPalpatine = new Ansatt(10, "emperorpalpatine", "Emperor", "Palpatine", LocalDate.of(1977, 5, 25), "Galactic Emperor", BigDecimal.valueOf(200000));
 
-		Avdeling tattoine = new Avdeling();
-		Avdeling endor = new Avdeling();
-		Avdeling hoth = new Avdeling();
+		Avdeling tattoine = new Avdeling(1, "Tattoine", lukeSkywalker);
+		Avdeling endor = new Avdeling(2, "Endor", bobaFett);
+		Avdeling hoth = new Avdeling(3, "hoth", leiaOrgana);
 	}
 }
