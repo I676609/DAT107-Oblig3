@@ -6,7 +6,7 @@ SET search_path TO Iterasjon3;
     
 CREATE TABLE Ansatt
 (
-	ansattId INTEGER PRIMARY KEY,
+	ansattId SERIAL PRIMARY KEY,
 	ansettelsesDato DATE NOT NULL,
 	brukernavn varchar(30) UNIQUE NOT NULL,
 	fornavn varchar(30) NOT NULL,
@@ -34,7 +34,7 @@ Select * from Ansatt;
 
    CREATE TABLE Avdeling
 (
-	avdelingId INTEGER PRIMARY KEY,
+	avdelingId SERIAL PRIMARY KEY,
 	navn varchar(30) NOT NULL,
 	sjef INTEGER NOT NULL FOREIGN KEY,
 );
