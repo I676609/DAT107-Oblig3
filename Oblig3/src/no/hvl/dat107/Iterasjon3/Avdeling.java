@@ -30,6 +30,38 @@ public class Avdeling {
 		this.leder = leder;
 	}
 
+	public int getAvdelingsId() {
+		return avdelingsId;
+	}
+
+	public void setAvdelingsId(int avdelingsId) {
+		this.avdelingsId = avdelingsId;
+	}
+
+	public String getAvdelingsnavn() {
+		return avdelingsnavn;
+	}
+
+	public void setAvdelingsnavn(String avdelingsnavn) {
+		this.avdelingsnavn = avdelingsnavn;
+	}
+
+	public Ansatt getLeder() {
+		return leder;
+	}
+
+	public void setLeder(Ansatt leder) {
+		this.leder = leder;
+	}
+
+	public Avdeling getAvdeling() {
+		return avdeling;
+	}
+
+	public void setAvdeling(Avdeling avdeling) {
+		this.avdeling = avdeling;
+	}
+
 	@Override
 	public String toString() {
 		return "AvdelingsID [aID=" + avdelingsId + ", Avdelingsnavn=" + avdelingsnavn + ", Leder=" + leder + "]";
