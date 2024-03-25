@@ -26,9 +26,8 @@ public class Ansatt {
 
 	public Ansatt() {}
 
-	public Ansatt(int ansattId, String brukernavn, String fornavn, String etternavn, LocalDate ansettelsesDato,
+	public Ansatt(String brukernavn, String fornavn, String etternavn, LocalDate ansettelsesDato,
 			String stilling, BigDecimal manedslonn) {
-		this.ansattId = ansattId;
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
@@ -39,9 +38,9 @@ public class Ansatt {
 
 	@Override
 	public String toString() {
-		return "Ansatt:\nAnsattId: " + ansattId + "\nBrukernavn: " + brukernavn + "\nFornavn: " + fornavn + "\nEtternavn: "
-				+ etternavn + "\nAnsettelsesDato: " + ansettelsesDato + "\nStilling: " + stilling + "\nMånedslønn: "
-				+ manedslonn;
+		return "Ansatt [ansattId=" + ansattId + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
+				+ etternavn + ", ansettelsesDato=" + ansettelsesDato + ", stilling=" + stilling + ", manedslonn="
+				+ manedslonn + "]";
 	}
 
 	public int getAnsattId() {
@@ -101,6 +100,12 @@ public class Ansatt {
 	}
 
 	public void skrivUt() {
-		System.out.println(toString() + "\n");
+		System.out.println("AnsattId: " + ansattId);
+		System.out.println("Brukernavn: " + brukernavn);
+		System.out.println("Fornavn: " + fornavn);
+		System.out.println("Etternavn: " + etternavn);
+		System.out.println("AnsettelsesDato: " + ansettelsesDato);
+		System.out.println("Stilling: " + stilling);
+		System.out.println("Månedslønn: " + manedslonn);
 	}
 }
