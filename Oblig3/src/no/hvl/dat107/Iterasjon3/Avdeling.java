@@ -1,14 +1,11 @@
 package no.hvl.dat107.Iterasjon3;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -21,12 +18,8 @@ public class Avdeling {
 	private int avdelingsID;
 	private String avdelingsnavn;
 
-	@OneToOne
-	@JoinColumn(name = "ansattID")
-	private Ansatt leder;
-	@OneToMany(mappedBy = "avdeling", fetch = FetchType.EAGER)
-	private List<Ansatt> deltagere;
-
+	@OneToOne(mappedBy = "ansattID", fetch = FetchType.EAGER)
+	private Ansatt sjef;
 
 	public Avdeling() {
 	}
@@ -35,9 +28,9 @@ public class Avdeling {
 		this.avdelingsnavn = avdelingsnavn;
 	}
 
-	public Avdeling(String avdelingsnavn, Ansatt leder) {
+	public Avdeling(String avdelingsnavn, Ansatt sjef) {
 		this.avdelingsnavn = avdelingsnavn;
-		this.leder = leder;
+		this.sjef = sjef;
 	}
 
 	public int getAvdelingsID() {
@@ -53,22 +46,15 @@ public class Avdeling {
 	}
 
 	public Ansatt getLeder() {
-		return leder;
+		return sjef;
 	}
 
 	public void setLeder(Ansatt leder) {
-		this.leder = leder;
+		this.sjef = leder;
 	}
 
-	public List<Ansatt> getDeltagere() {
-		return deltagere;
-	}
-	
-	public void setDeltagere(List<Ansatt> deltagere) {
-		this.deltagere = deltagere;
-	}
 	@Override
 	public String toString() {
-		return "Avdeling [avdelingsID=" + avdelingsID + ", Navn=" + avdelingsnavn + ", Leder=" + leder + "]";
+		return "Avdeling [avdelingsID=" + avdelingsID + ", Navn=" + avdelingsnavn + ", Leder=" + sjef + "]";
 	}
 }
