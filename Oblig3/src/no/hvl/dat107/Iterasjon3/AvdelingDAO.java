@@ -11,7 +11,7 @@ public class AvdelingDAO {
 		emf = Persistence.createEntityManagerFactory("firmaPU");
 	}
 
-	public Avdeling finnAvdelingMedId(int id) {
+	public Avdeling finnAvdelingMedID(int id) {
 		EntityManager em = emf.createEntityManager();
 		try {
 			return em.find(Avdeling.class, id);

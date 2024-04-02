@@ -1,4 +1,4 @@
-package no.hvl.dat107.Iterasjon2;
+package no.hvl.dat107.Iterasjon3;
 
 import static javax.swing.JOptionPane.showInputDialog;
 
@@ -16,6 +16,7 @@ import jakarta.persistence.TypedQuery;
 public class AnsattDAO {
 
 	private EntityManagerFactory emf;
+	private AvdelingDAO avdelingDAO;
 
 	public AnsattDAO() {
 		emf = Persistence.createEntityManagerFactory("firmaPU");
@@ -161,9 +162,10 @@ public class AnsattDAO {
 	}
 
 	public void leggTilAnsatt() {
-		leggTilAnsatt(new Ansatt(Integer.parseInt(showInputDialog("AnsattID:")), showInputDialog("Brukernavn:"),
+		leggTilAnsatt(new Ansatt(showInputDialog("Brukernavn:"),
 				showInputDialog("Fornavn:"), showInputDialog("Etternavn"),
 				LocalDate.parse(showInputDialog("AnsettelsesDato: (yyyy-mm-dd")), showInputDialog("Stilling:"),
-				BigDecimal.valueOf(Double.parseDouble(showInputDialog("Månedslønn:")))));
+				BigDecimal.valueOf(Double.parseDouble(showInputDialog("Månedslønn:"))),
+				avdelingDAO.finnAvdelingMedID(Integer.parseInt(showInputDialog("AvdelingsID:")))));
 	}
 }

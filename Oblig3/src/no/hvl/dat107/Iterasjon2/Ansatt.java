@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 @Table(schema = "iterasjon1")
 public class Ansatt {
 	@Id
-	private int ansattId;
+	private int ansattID;
 	private String brukernavn;
 	private String fornavn;
 	private String etternavn;
@@ -22,9 +22,9 @@ public class Ansatt {
 	public Ansatt() {
 	}
 
-	public Ansatt(int ansattId, String brukernavn, String fornavn, String etternavn, LocalDate ansettelsesDato,
+	public Ansatt(int ansattID, String brukernavn, String fornavn, String etternavn, LocalDate ansettelsesDato,
 			String stilling, BigDecimal manedslonn) {
-		this.ansattId = ansattId;
+		this.ansattID = ansattID;
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
@@ -35,17 +35,17 @@ public class Ansatt {
 
 	@Override
 	public String toString() {
-		return "Ansatt [ansattId=" + ansattId + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
+		return "Ansatt [ansattID=" + ansattID + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
 				+ etternavn + ", ansettelsesDato=" + ansettelsesDato + ", stilling=" + stilling + ", manedslonn="
 				+ manedslonn + "]";
 	}
 
-	public int getAnsattId() {
-		return ansattId;
+	public int getAnsattID() {
+		return ansattID;
 	}
 
-	public void setAnsattId(int ansattId) {
-		this.ansattId = ansattId;
+	public void setAnsattID(int ansattID) {
+		this.ansattID = ansattID;
 	}
 
 	public String getBrukernavn() {
@@ -92,12 +92,12 @@ public class Ansatt {
 		return manedslonn;
 	}
 
-	public void setManedslonn(BigDecimal månedslønn) {
-		this.manedslonn = månedslønn;
+	public void setManedslonn(BigDecimal manedslonn) {
+		this.manedslonn = manedslonn;
 	}
 
 	public void skrivUt() {
-		System.out.println("AnsattId: " + ansattId);
+		System.out.println("AnsattID: " + ansattID);
 		System.out.println("Brukernavn: " + brukernavn);
 		System.out.println("Fornavn: " + fornavn);
 		System.out.println("Etternavn: " + etternavn);

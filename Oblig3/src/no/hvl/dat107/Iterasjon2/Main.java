@@ -36,7 +36,7 @@ public class Main {
 	private static void finnAnsatt() {
 		String s = showInputDialog("Vil du finne ansatt via brukernavn eller ID?");
 		if (s.toLowerCase().contains("id")) {
-			System.out.println(ansattDAO.finnAnsattMedId(Integer.parseInt(showInputDialog("Hva er ansatt sin ID?"))));
+			System.out.println(ansattDAO.finnAnsattMedID(Integer.parseInt(showInputDialog("ID:"))));
 		} else if (s.toLowerCase().contains("brukernavn")) {
 			System.out.println(ansattDAO.finnAnsattMedBrukernavn(showInputDialog("Hva er ansatt sitt burkernavn?")));
 		} else {
@@ -46,23 +46,23 @@ public class Main {
 
 	private static void oppdater() {
 		String s = showInputDialog("Vil du oppdatere stilling eller lønn?");
-		String a = showInputDialog("Vil du finne avsatt ved ID eller Brukernavn?");
+		String a = showInputDialog("Vil du finne ansatt ved ID eller Brukernavn?");
 		if (s.toLowerCase().contains("stilling")) {
 			if (a.toLowerCase().contains("id"))
-				ansattDAO.oppdaterAnsattStilling(Integer.parseInt(showInputDialog("Skriv inn ansatt id")),
-						showInputDialog("Skriv inn stilling"));
+				ansattDAO.oppdaterAnsattStilling(Integer.parseInt(showInputDialog("ID:")),
+						showInputDialog("Ny stilling:"));
 			else if (a.toLowerCase().contains("brukernavn"))
-				ansattDAO.oppdaterAnsattStilling(showInputDialog("Hva er ansatt sitt brukernavn?"),
-						showInputDialog("Skriv inn stilling"));
+				ansattDAO.oppdaterAnsattStilling(showInputDialog("Brukernavn:"),
+						showInputDialog("Ny stilling:"));
 			else
 				System.out.println("Ulivlig input!!");
 		} else if (s.toLowerCase().contains("lønn")) {
 			if (a.toLowerCase().contains("id"))
-				ansattDAO.oppdaterAnsattLonn(Integer.parseInt(showInputDialog("Skriv inn ansatt id")),
-						BigDecimal.valueOf(Double.parseDouble(showInputDialog("Skriv inn ny lønn"))));
+				ansattDAO.oppdaterAnsattLonn(Integer.parseInt(showInputDialog("ID:")),
+						BigDecimal.valueOf(Double.parseDouble(showInputDialog("Ny lønn:"))));
 			else if (a.toLowerCase().contains("brukernavn"))
-				ansattDAO.oppdaterAnsattLonn(showInputDialog("Hva er ansatt sitt brukernavn?"),
-						BigDecimal.valueOf(Double.parseDouble(showInputDialog("Skriv inn ny lønn"))));
+				ansattDAO.oppdaterAnsattLonn(showInputDialog("Brukernavn:"),
+						BigDecimal.valueOf(Double.parseDouble(showInputDialog("Ny lønn:"))));
 			else
 				System.out.println("Ulivlig input!!");
 		} else {

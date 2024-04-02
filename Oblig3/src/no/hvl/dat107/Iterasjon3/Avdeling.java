@@ -5,36 +5,36 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+
 @Entity
 @Table(schema = "Iterasjon3")
 public class Avdeling {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int avdelingsId;
+	private int avdelingsID;
 	private String avdelingsnavn;
 
-	@ManyToOne
-	@JoinColumn(name = "ansattId")
+	@OneToOne
+	@JoinColumn(name = "ansattID")
 	private Ansatt leder;
 
 	public Avdeling() {
 	}
 
-	public Avdeling(int avdelingsId, String avdelingsnavn,Ansatt leder) {
-		this.avdelingsId = avdelingsId;
+	public Avdeling(String avdelingsnavn, Ansatt leder) {
 		this.avdelingsnavn = avdelingsnavn;
 		this.leder = leder;
 	}
 
-	public int getAvdelingsId() {
-		return avdelingsId;
+	public int getAvdelingsID() {
+		return avdelingsID;
 	}
 
-	public void setAvdelingsId(int avdelingsId) {
-		this.avdelingsId = avdelingsId;
+	public void setAvdelingsID(int avdelingsID) {
+		this.avdelingsID = avdelingsID;
 	}
 
 	public String getAvdelingsnavn() {
@@ -55,6 +55,6 @@ public class Avdeling {
 
 	@Override
 	public String toString() {
-		return "AvdelingsID [aID=" + avdelingsId + ", Avdelingsnavn=" + avdelingsnavn + ", Leder=" + leder + "]";
+		return "Avdeling [avdelingsID=" + avdelingsID + ", Navn=" + avdelingsnavn + ", Leder=" + leder + "]";
 	}
 }

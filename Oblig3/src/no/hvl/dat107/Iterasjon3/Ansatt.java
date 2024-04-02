@@ -14,41 +14,42 @@ import jakarta.persistence.Table;
 public class Ansatt {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ansattId;
+	private int ansattID;
 	private String brukernavn;
 	private String fornavn;
 	private String etternavn;
 	private LocalDate ansettelsesDato;
 	private String stilling;
 	private BigDecimal manedslonn;
-	
-	
+	private Avdeling avdeling;
 
-	public Ansatt() {}
+	public Ansatt() {
+	}
 
-	public Ansatt(String brukernavn, String fornavn, String etternavn, LocalDate ansettelsesDato,
-			String stilling, BigDecimal manedslonn) {
+	public Ansatt(String brukernavn, String fornavn, String etternavn, LocalDate ansettelsesDato, String stilling,
+			BigDecimal manedslonn, Avdeling avdeling) {
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
 		this.ansettelsesDato = ansettelsesDato;
 		this.stilling = stilling;
 		this.manedslonn = manedslonn;
+		this.avdeling = avdeling;
 	}
 
 	@Override
 	public String toString() {
-		return "Ansatt [ansattId=" + ansattId + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
+		return "Ansatt [ansattID=" + ansattID + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
 				+ etternavn + ", ansettelsesDato=" + ansettelsesDato + ", stilling=" + stilling + ", manedslonn="
 				+ manedslonn + "]";
 	}
 
-	public int getAnsattId() {
-		return ansattId;
+	public int getAnsattID() {
+		return ansattID;
 	}
 
-	public void setAnsattId(int ansattId) {
-		this.ansattId = ansattId;
+	public void setAnsattID(int ansattID) {
+		this.ansattID = ansattID;
 	}
 
 	public String getBrukernavn() {
@@ -95,12 +96,20 @@ public class Ansatt {
 		return manedslonn;
 	}
 
-	public void setManedslonn(BigDecimal månedslønn) {
-		this.manedslonn = månedslønn;
+	public void setManedslonn(BigDecimal manedslonn) {
+		this.manedslonn = manedslonn;
+	}
+
+	public Avdeling getAvdeling() {
+		return avdeling;
+	}
+
+	public void setAvdeling(Avdeling avdeling) {
+		this.avdeling = avdeling;
 	}
 
 	public void skrivUt() {
-		System.out.println("AnsattId: " + ansattId);
+		System.out.println("AnsattID: " + ansattID);
 		System.out.println("Brukernavn: " + brukernavn);
 		System.out.println("Fornavn: " + fornavn);
 		System.out.println("Etternavn: " + etternavn);

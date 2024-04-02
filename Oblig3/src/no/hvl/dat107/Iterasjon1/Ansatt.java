@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 @Entity
 public class Ansatt {
 	@Id
-	private int ansattId;
+	private int ansattID;
 	private String brukernavn;
 	private String fornavn;
 	private String etternavn;
@@ -21,17 +21,17 @@ public class Ansatt {
 	
 	@Override
 	public String toString() {
-		return "Ansatt [ansattId=" + ansattId + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
+		return "Ansatt [ansattID=" + ansattID + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
 				+ etternavn + ", ansettelsesDato=" + ansettelsesDato + ", stilling=" + stilling + ", månedslønn="
 				+ manedslonn + "]";
 	}
 
-	public int getAnsattId() {
-		return ansattId;
+	public int getAnsattID() {
+		return ansattID;
 	}
 
-	public void setAnsattId(int ansattId) {
-		this.ansattId = ansattId;
+	public void setAnsattID(int ansattID) {
+		this.ansattID = ansattID;
 	}
 
 	public String getBrukernavn() {

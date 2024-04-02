@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 import no.hvl.dat107.Iterasjon1.Ansatt;
 
 @Entity
-@Table(schema = "Iterasjon1")
+@Table(schema = "Iterasjon3")
 public class Prosjekt {
 
 	@Id
