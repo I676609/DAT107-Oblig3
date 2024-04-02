@@ -1,10 +1,13 @@
 package no.hvl.dat107.Iterasjon3;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -20,6 +23,9 @@ public class Avdeling {
 	@OneToOne
 	@JoinColumn(name = "ansattID")
 	private Ansatt leder;
+	@ManyToOne
+	@JoinColumn(name = "ansattID")
+	private List<Ansatt> deltagere;
 
 	public Avdeling() {
 	}
