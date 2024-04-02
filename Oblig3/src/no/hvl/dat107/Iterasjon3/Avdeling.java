@@ -24,6 +24,10 @@ public class Avdeling {
 	public Avdeling() {
 	}
 
+	public Avdeling(String avdelingsnavn) {
+		this.avdelingsnavn = avdelingsnavn;
+	}
+
 	public Avdeling(String avdelingsnavn, Ansatt leder) {
 		this.avdelingsnavn = avdelingsnavn;
 		this.leder = leder;
@@ -31,10 +35,6 @@ public class Avdeling {
 
 	public int getAvdelingsID() {
 		return avdelingsID;
-	}
-
-	public void setAvdelingsID(int avdelingsID) {
-		this.avdelingsID = avdelingsID;
 	}
 
 	public String getAvdelingsnavn() {
