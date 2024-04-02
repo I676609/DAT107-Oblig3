@@ -1,4 +1,3 @@
--- SQL for en-til-mange-eksemplet gjennomgått i timen onsdag 13. mars 2024 
 
 DROP SCHEMA IF EXISTS Iterasjon3 CASCADE;
 CREATE SCHEMA Iterasjon3;
@@ -13,13 +12,13 @@ CREATE TABLE Ansatt
 	etternavn varchar(30) NOT NULL,
 	stilling varchar(30) NOT NULL,
 	manedslonn DECIMAL NOT NULL,
-	avdelingID Integer
+	avdelingsID Integer
 );
 
 CREATE TABLE Avdeling(
 	avdelingsID SERIAL PRIMARY KEY,
 	navn varchar(30) NOT NULL,
-	sjef INTEGER REFERENCES Ansatt(ansattId)
+	sjef INTEGER REFERENCES Ansatt(ansattID)
 );
 
 INSERT INTO Ansatt(ansettelsesDato, brukernavn, fornavn, etternavn, stilling, manedslonn)
@@ -32,7 +31,7 @@ VALUES
 
 Select * from Ansatt;
 
-INSERT INTO avdeling(navn, sjef) VALUES
+INSERT INTO Avdeling(navn, sjef) VALUES
   ('Innovation Hub', 1),
   ('Cybernetic Solutions', 2),
   ('Galactic Ventures', 3),
