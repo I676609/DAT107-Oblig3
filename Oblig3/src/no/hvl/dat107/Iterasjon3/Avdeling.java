@@ -21,7 +21,7 @@ public class Avdeling {
 	private int avdelingsID;
 	private String avdelingsnavn;
 
-	@OneToOne(mappedBy ="avdeling", fetch = FetchType.EAGER)
+	@OneToOne
 	@JoinColumn(name = "ansattID")
 	private Ansatt leder;
 	@OneToMany(mappedBy = "avdeling", fetch = FetchType.EAGER)
