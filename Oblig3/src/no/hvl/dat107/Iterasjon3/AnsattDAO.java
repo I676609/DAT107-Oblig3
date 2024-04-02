@@ -22,8 +22,6 @@ public class AnsattDAO {
 		emf = Persistence.createEntityManagerFactory("firmaPU");
 	}
 
-	/* --------------------------------------------------------------------- */
-
 	public Ansatt finnAnsattMedID(int ansattID) {
 
 		EntityManager em = emf.createEntityManager();
@@ -33,8 +31,6 @@ public class AnsattDAO {
 			em.close();
 		}
 	}
-
-	/* --------------------------------------------------------------------- */
 
 	public Ansatt finnAnsattMedBrukernavn(String brukernavn) {
 
@@ -52,8 +48,6 @@ public class AnsattDAO {
 		}
 	}
 
-	/* --------------------------------------------------------------------- */
-
 	public List<Ansatt> finnAlleAnsatte() {
 
 		EntityManager em = emf.createEntityManager();
@@ -64,8 +58,6 @@ public class AnsattDAO {
 			em.close();
 		}
 	}
-
-	/* --------------------------------------------------------------------- */
 
 	public void oppdaterAnsattStilling(int ansattID, String stilling) {
 		EntityManager em = emf.createEntityManager();
