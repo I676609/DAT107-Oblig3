@@ -3,11 +3,12 @@ package no.hvl.dat107.Iterasjon3;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -20,12 +21,12 @@ public class Avdeling {
 	private int avdelingsID;
 	private String avdelingsnavn;
 
-	@OneToOne
+	@OneToOne(mappedBy ="avdeling", fetch = FetchType.EAGER)
 	@JoinColumn(name = "ansattID")
 	private Ansatt leder;
-	@ManyToOne
-	@JoinColumn(name = "ansattID")
+	@OneToMany(mappedBy = "avdeling", fetch = FetchType.EAGER)
 	private List<Ansatt> deltagere;
+
 
 	public Avdeling() {
 	}
@@ -59,6 +60,13 @@ public class Avdeling {
 		this.leder = leder;
 	}
 
+	public List<Ansatt> getDeltagere() {
+		return deltagere;
+	}
+	
+	public void setDeltagere(List<Ansatt> deltagere) {
+		this.deltagere = deltagere;
+	}
 	@Override
 	public String toString() {
 		return "Avdeling [avdelingsID=" + avdelingsID + ", Navn=" + avdelingsnavn + ", Leder=" + leder + "]";
