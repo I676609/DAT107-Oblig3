@@ -6,19 +6,19 @@ SET search_path TO Iterasjon3;
 CREATE TABLE Ansatt
 (
 	ansattID SERIAL PRIMARY KEY,
-	ansettelsesDato DATE NOT NULL,
-	brukernavn varchar(30) UNIQUE NOT NULL,
-	fornavn varchar(30) NOT NULL,
-	etternavn varchar(30) NOT NULL,
-	stilling varchar(30) NOT NULL,
-	manedslonn DECIMAL NOT NULL,
-	avdelingsID Integer
+	ansettelsesDato DATE 
+	brukernavn varchar(30) UNIQUE,
+	fornavn varchar(30),
+	etternavn varchar(30),
+	stilling varchar(30),
+	manedslonn DECIMAL,
+	avdelingsID Integer NOT NULL
 );
 
 CREATE TABLE Avdeling(
 	avdelingsID SERIAL PRIMARY KEY,
-	navn varchar(30) NOT NULL,
-	sjef INTEGER REFERENCES Ansatt(ansattID)
+	navn varchar(30),
+	FOREIGN KEY (sjef) REFERENCES Ansatt(ansattID)
 );
 
 INSERT INTO Ansatt(ansettelsesDato, brukernavn, fornavn, etternavn, stilling, manedslonn, avdelingsID)
@@ -41,6 +41,6 @@ INSERT INTO Avdeling(navn, sjef) VALUES
 Select * from Avdeling;
 
 ALTER TABLE Ansatt
-ADD CONSTRAINT FK_Avdeling FOREIGN KEY(avdelingsID) REFERENCES Avdeling(avdelingsID);
+ADD ADD FOREIGN KEY(avdelingsID) REFERENCES Avdeling(avdelingsID);
 
 Select * from Ansatt, Avdeling where Avdeling.avdelingsID = Ansatt.avdelingsID;

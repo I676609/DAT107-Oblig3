@@ -1,7 +1,5 @@
 package no.hvl.dat107.Iterasjon3;
 
-import static javax.swing.JOptionPane.showInputDialog;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 

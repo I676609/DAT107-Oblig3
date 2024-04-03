@@ -3,6 +3,7 @@ package no.hvl.dat107.Iterasjon3;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -13,19 +14,21 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(schema = "iterasjon3")
+@Table(schema = "Iterasjon3")
 public class Ansatt {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ansattID;
+	
 	private String brukernavn;
 	private String fornavn;
 	private String etternavn;
 	private LocalDate ansettelsesDato;
 	private String stilling;
 	private BigDecimal manedslonn;
-	@ManyToOne
-	@JoinColumn(name = "avdelingsID")
+	
+	@ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "avdelingsID", referencedColumnName = "avdelingsID")
 	private Avdeling avdeling;
 
 	public Ansatt() {
