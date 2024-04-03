@@ -45,7 +45,10 @@ public class AvdelingDAO {
 
 	public void leggTilAvdeling() {
 		EntityManager em = emf.createEntityManager();
-		leggTilAvdeling(new Avdeling(showInputDialog("Avdelingsnavn:"),
-				em.find(Ansatt.class, showInputDialog("AnsattID til sjef:"))));
+		Ansatt ansatt = em.find(Ansatt.class, Integer.parseInt(showInputDialog("AnsattID til sjef:")));
+		Avdeling avdeling = new Avdeling(showInputDialog("Avdelingsnavn:"), ansatt);
+		leggTilAvdeling(avdeling);
+		AnsattDAO ansattDAO = new AnsattDAO();
+		ansattDAO.oppdaterAvdeling(ansatt.getAnsattID(), avdeling.getAvdelingsID());
 	}
 }

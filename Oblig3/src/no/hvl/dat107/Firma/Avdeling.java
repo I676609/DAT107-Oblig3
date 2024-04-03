@@ -58,7 +58,7 @@ public class Avdeling {
 	public void skrivUt() {
 		System.out.println("AvdelingsID: " + avdelingsID);
 		System.out.println("Avdelingsnavn: " + avdelingsnavn);
-		System.out.println("Sjef: " + sjef.getFornavn());
+		System.out.println("Sjef: " + sjef.getFornavn() + " " + sjef.getEtternavn());
 		System.out.println();
 	}
 
