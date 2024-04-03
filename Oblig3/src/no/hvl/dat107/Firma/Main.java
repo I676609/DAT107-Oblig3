@@ -13,7 +13,6 @@ public class Main {
 
 		Boolean kjorer = true;
 		while (kjorer) {
-
 			String s = showInputDialog(
 					"Hva ønsker du å gjøre?\nFinn an/av (Finner en ansatt/avdeling)\nAlle (Skriver ut alle ansatte)\nOppdater (For å oppdatere en ansatt)\nLegg til (For å legge til en ny ansatt)");
 

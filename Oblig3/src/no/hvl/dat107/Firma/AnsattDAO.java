@@ -53,7 +53,7 @@ public class AnsattDAO {
 		EntityManager em = emf.createEntityManager();
 
 		try {
-			return em.createQuery("select a from Ansatt as a", Ansatt.class).getResultList();
+			return em.createQuery("select a from Ansatt as a order by a.ansattID", Ansatt.class).getResultList();
 		} finally {
 			em.close();
 		}
@@ -154,6 +154,7 @@ public class AnsattDAO {
 	}
 
 	public void leggTilAnsatt() {
+		avdelingDAO = new AvdelingDAO();
 		leggTilAnsatt(new Ansatt(showInputDialog("Brukernavn:"),
 				showInputDialog("Fornavn:"), showInputDialog("Etternavn"),
 				LocalDate.parse(showInputDialog("AnsettelsesDato: (yyyy-mm-dd")), showInputDialog("Stilling:"),

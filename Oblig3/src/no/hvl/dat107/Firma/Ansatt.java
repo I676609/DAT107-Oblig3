@@ -124,6 +124,6 @@ public class Ansatt {
 		System.out.println("AnsettelsesDato: " + ansettelsesDato);
 		System.out.println("Stilling: " + stilling);
 		System.out.println("Månedslønn: " + manedslonn);
-		System.out.println("Avdeling: " + avdeling.getAvdelingsnavn());
+		System.out.println("Avdeling: " + avdeling.getAvdelingsnavn() + "\n");
 	}
 }
