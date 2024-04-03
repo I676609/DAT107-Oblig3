@@ -12,6 +12,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
+import no.hvl.dat107.Iterasjon3.Avdeling;
 
 public class AnsattDAO {
 

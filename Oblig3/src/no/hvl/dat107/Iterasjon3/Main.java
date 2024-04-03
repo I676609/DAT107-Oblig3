@@ -14,7 +14,7 @@ public class Main {
 			avdelingDAO = new AvdelingDAO();
 
 			String s = showInputDialog(
-					"Hva ønsker du å gjøre?\nFinn (Finner en ansatt/avdeling)\nAlle (Skriver ut alle ansatte)\nOppdater (For å oppdatere en ansatt)\nLegg til (For å legge til en ny ansatt)");
+					"Hva ønsker du å gjøre?\nFinn an/av (Finner en ansatt/avdeling)\nAlle (Skriver ut alle ansatte)\nOppdater (For å oppdatere en ansatt)\nLegg til (For å legge til en ny ansatt)");
 
 			if (s == null || s.toLowerCase().contains("quit") || s.toLowerCase().contains("stop")) {
 				kjorer = false;
