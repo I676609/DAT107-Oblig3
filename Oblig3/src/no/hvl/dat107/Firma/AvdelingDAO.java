@@ -2,6 +2,8 @@ package no.hvl.dat107.Firma;
 
 import static javax.swing.JOptionPane.showInputDialog;
 
+import java.util.List;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -50,5 +52,15 @@ public class AvdelingDAO {
 		leggTilAvdeling(avdeling);
 		AnsattDAO ansattDAO = new AnsattDAO();
 		ansattDAO.oppdaterAvdeling(ansatt.getAnsattID(), avdeling.getAvdelingsID());
+	}
+	public List<Avdeling> finnAlleAvdelinger() {
+
+		EntityManager em = emf.createEntityManager();
+
+		try {
+			return em.createQuery("select a from Avdeling as a order by a.avdelingsID", Avdeling.class).getResultList();
+		} finally {
+			em.close();
+		}
 	}
 }

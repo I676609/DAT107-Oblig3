@@ -44,6 +44,11 @@ public class Main {
 			} else if (s.contains("finn av")) {
 				finnAvdeling();
 			}
+			else if (s.contains("avdelinger")) {
+				for (Avdeling a : avdelingDAO.finnAlleAvdelinger()) {
+					a.skrivUt();
+				}
+			}
 		}
 	}
 

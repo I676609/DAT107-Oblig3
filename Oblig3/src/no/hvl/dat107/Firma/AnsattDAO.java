@@ -144,7 +144,7 @@ public class AnsattDAO {
 				System.out.println("" + managed.getBrukernavn() + " er leder!!");
 				return;
 			}
-			managed.setAvdeling(avdelingDAO.finnAvdelingMedID(avdelingsID));
+			managed.setAvdeling(em.find(Avdeling.class, avdelingsID));
 			tx.commit();
 
 		} finally {
