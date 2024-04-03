@@ -6,7 +6,7 @@ SET search_path TO Iterasjon3;
 CREATE TABLE Ansatt
 (
 	ansattID SERIAL PRIMARY KEY,
-	ansettelsesDato DATE 
+	ansettelsesDato DATE, 
 	brukernavn varchar(30) UNIQUE,
 	fornavn varchar(30),
 	etternavn varchar(30),
@@ -17,7 +17,8 @@ CREATE TABLE Ansatt
 
 CREATE TABLE Avdeling(
 	avdelingsID SERIAL PRIMARY KEY,
-	navn varchar(30),
+	avdelingsnavn varchar(30),
+	sjef integer,
 	FOREIGN KEY (sjef) REFERENCES Ansatt(ansattID)
 );
 
@@ -27,11 +28,17 @@ VALUES
     ('2022-11-15', 'lolmaster', 'Chad', 'Thunderstorm', 'Director of Memes', 9000.50, 2),
     ('2023-02-28', 'quirkyqueenie', 'Alice', 'Wacky', 'Master of Puns', 8500.75, 3),
     ('2022-08-20', 'sillysally', 'Sally', 'Goofball', 'Vice President of Silliness', 12000.00, 4),
-    ('2023-09-03', 'jokesterjohn', 'John', 'Whimsy', 'Minister of Laughter', 11000.25, 5);
+    ('2023-09-03', 'jokesterjohn', 'John', 'Whimsy', 'Minister of Laughter', 11000.25, 5),
+	('2023-12-12', 'hilarioushannah', 'Hannah', 'Joker', 'Head of Comedy', 10500.50, 2),
+    ('2024-01-25', 'gigglegeorge', 'George', 'Guffaw', 'Laughing Liaison', 9500.25, 5),
+    ('2023-06-30', 'whimsicalwanda', 'Wanda', 'Merryweather', 'Chief Chuckler', 10200.75, 5),
+    ('2024-03-15', 'laughinglarry', 'Larry', 'Grins', 'Humor Consultant', 9800.00, 4),
+    ('2023-08-08', 'mirthfulmary', 'Mary', 'Smiles', 'Jester-in-Chief', 10750.00, 1);
+
 
 Select * from Ansatt;
 
-INSERT INTO Avdeling(navn, sjef) VALUES
+INSERT INTO Avdeling(avdelingsnavn, sjef) VALUES
   ('Innovation Hub', 1),
   ('Cybernetic Solutions', 2),
   ('Galactic Ventures', 3),
@@ -41,6 +48,6 @@ INSERT INTO Avdeling(navn, sjef) VALUES
 Select * from Avdeling;
 
 ALTER TABLE Ansatt
-ADD ADD FOREIGN KEY(avdelingsID) REFERENCES Avdeling(avdelingsID);
+ADD FOREIGN KEY(avdelingsID) REFERENCES Avdeling(avdelingsID);
 
 Select * from Ansatt, Avdeling where Avdeling.avdelingsID = Ansatt.avdelingsID;
