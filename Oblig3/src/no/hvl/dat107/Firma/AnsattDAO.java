@@ -133,6 +133,25 @@ public class AnsattDAO {
 		oppdaterAnsattStillingOgLonn(finnAnsattMedBrukernavn(brukernavn).getAnsattID(), stilling, lonn);
 	}
 
+	public void oppdaterAvdeling(int ansattID, int avdelingsID) {
+		avdelingDAO = new AvdelingDAO();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		try {
+			tx.begin();
+			Ansatt managed = em.find(Ansatt.class, ansattID);
+			if (ansattID == managed.getAvdeling().getLeder().getAnsattID()) {
+				System.out.println("" + managed.getBrukernavn() + " er leder!!");
+				return;
+			}
+			managed.setAvdeling(avdelingDAO.finnAvdelingMedID(avdelingsID));
+			tx.commit();
+
+		} finally {
+			em.close();
+		}
+	}
+
 	public void leggTilAnsatt(Ansatt a) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -155,19 +174,19 @@ public class AnsattDAO {
 
 	public void leggTilAnsatt() {
 		avdelingDAO = new AvdelingDAO();
-		leggTilAnsatt(new Ansatt(showInputDialog("Brukernavn:"),
-				showInputDialog("Fornavn:"), showInputDialog("Etternavn"),
-				LocalDate.parse(showInputDialog("AnsettelsesDato: (yyyy-mm-dd")), showInputDialog("Stilling:"),
-				BigDecimal.valueOf(Double.parseDouble(showInputDialog("Månedslønn:"))),
+		leggTilAnsatt(new Ansatt(showInputDialog("Brukernavn:"), showInputDialog("Fornavn:"),
+				showInputDialog("Etternavn"), LocalDate.parse(showInputDialog("AnsettelsesDato: (yyyy-mm-dd")),
+				showInputDialog("Stilling:"), BigDecimal.valueOf(Double.parseDouble(showInputDialog("Månedslønn:"))),
 				avdelingDAO.finnAvdelingMedID(Integer.parseInt(showInputDialog("AvdelingsID:")))));
 	}
+
 	public List<Ansatt> alleAnsatteIAvdeling(int avdelingsID) {
 
 		EntityManager em = emf.createEntityManager();
 
 		try {
-			TypedQuery<Ansatt> query = em.createQuery("select a from Ansatt a where a.avdeling.avdelingsID = :avdelingsID",
-					Ansatt.class);
+			TypedQuery<Ansatt> query = em
+					.createQuery("select a from Ansatt a where a.avdeling.avdelingsID = :avdelingsID", Ansatt.class);
 			query.setParameter("avdelingsID", avdelingsID);
 			return query.getResultList();
 		} catch (NoResultException e) {

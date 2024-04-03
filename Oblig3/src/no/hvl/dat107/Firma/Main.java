@@ -56,6 +56,9 @@ public class Main {
 	}
 
 	private static void oppdater() {
+		String str = showInputDialog("Oppdater Ansatt eller Avdeling?");
+		if(str.toLowerCase().contains("an")) {
+			
 		String s = showInputDialog("Vil du oppdatere stilling eller lønn?");
 		String a = showInputDialog("Vil du finne ansatt ved ID eller Brukernavn?");
 		if (s.toLowerCase().contains("stilling")) {
@@ -81,6 +84,10 @@ public class Main {
 				System.out.println("Ulivlig input!");
 		} else {
 			System.out.println("Ulovlig input!");
+		}
+		}
+		else {
+			ansattDAO.oppdaterAvdeling(Integer.parseInt(showInputDialog("Ansatt ID:")), Integer.parseInt(showInputDialog("ny avdelingsID:")));
 		}
 	}
 }
