@@ -55,9 +55,15 @@ public class Avdeling {
 		this.sjef = leder;
 	}
 
+	public void skrivUt() {
+		System.out.println("AvdelingsID: " + avdelingsID);
+		System.out.println("Avdelingsnavn: " + avdelingsnavn);
+		System.out.println("Sjef: " + sjef.getFornavn());
+		System.out.println();
+	}
 
 	@Override
 	public String toString() {
-		return "Avdeling [avdelingsID=" + avdelingsID + ", Navn=" + avdelingsnavn + ", Leder=" + sjef + "]";
+		return "Avdeling [avdelingsID=" + avdelingsID + ", Navn=" + avdelingsnavn + ", Sjef=" + sjef + "]";
 	}
 }

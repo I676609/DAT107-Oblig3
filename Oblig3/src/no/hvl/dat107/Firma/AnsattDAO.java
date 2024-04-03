@@ -180,7 +180,7 @@ public class AnsattDAO {
 				avdelingDAO.finnAvdelingMedID(Integer.parseInt(showInputDialog("AvdelingsID:")))));
 	}
 
-	public List<Ansatt> alleAnsatteIAvdeling(int avdelingsID) {
+	public List<Ansatt> finnAnsatteIAvdeling(int avdelingsID) {
 
 		EntityManager em = emf.createEntityManager();
 

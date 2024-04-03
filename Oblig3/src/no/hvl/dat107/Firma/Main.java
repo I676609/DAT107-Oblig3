@@ -11,18 +11,22 @@ public class Main {
 	public static void main(String[] args) {
 		ansattDAO = new AnsattDAO();
 		avdelingDAO = new AvdelingDAO();
-		
+
 		Boolean kjorer = true;
 		while (kjorer) {
 			String s = showInputDialog(
-					"Hva ønsker du å gjøre?\nFinn an/av (Finner en ansatt/avdeling)\nAlle (Skriver ut alle ansatte)\nOppdater (For å oppdatere en ansatt)\nLegg til (For å legge til en ny ansatt)");
+					"Hva ønsker du å gjøre?\nFinn an/av (Finner en ansatt/avdeling)\nAlle an (Skriver ut alle ansatte)\nAlle av (Skriver ut ansatte i én avdeling)\nOppdater (For å oppdatere en ansatt)\nLegg til (For å legge til en ny ansatt)");
 
 			if (s == null || s.toLowerCase().contains("quit") || s.toLowerCase().contains("stop")) {
 				kjorer = false;
 			} else if (s.toLowerCase().contains("finn an")) {
 				finnAnsatt();
-			} else if (s.toLowerCase().contains("alle")) {
+			} else if (s.toLowerCase().contains("alle an")) {
 				for (Ansatt a : ansattDAO.finnAlleAnsatte()) {
+					a.skrivUt();
+				}
+			} else if (s.toLowerCase().contains("alle av")) {
+				for (Ansatt a : ansattDAO.finnAnsatteIAvdeling(Integer.parseInt(showInputDialog("AvdelingsID:")))) {
 					a.skrivUt();
 				}
 			} else if (s.toLowerCase().contains("oppdater")) {
@@ -33,15 +37,12 @@ public class Main {
 			} else if (s.toLowerCase().contains("finn av")) {
 				finnAvdeling();
 			}
-
 		}
-
 	}
 
 	private static void finnAvdeling() {
 		String s = showInputDialog("Skriv inn avdelingsID");
-		System.out.println(avdelingDAO.finnAvdelingMedID(Integer.parseInt(s)));
-
+		avdelingDAO.finnAvdelingMedID(Integer.parseInt(s)).skrivUt();
 	}
 
 	private static void finnAnsatt() {
@@ -57,37 +58,39 @@ public class Main {
 
 	private static void oppdater() {
 		String str = showInputDialog("Oppdater Ansatt eller Avdeling?");
-		if(str.toLowerCase().contains("an")) {
-			
-		String s = showInputDialog("Vil du oppdatere stilling eller lønn?");
-		String a = showInputDialog("Vil du finne ansatt ved ID eller Brukernavn?");
-		if (s.toLowerCase().contains("stilling")) {
-			if (a.toLowerCase().contains("id")) {
-				ansattDAO.oppdaterAnsattStilling(Integer.parseInt(showInputDialog("ID:")),
-						showInputDialog("Ny stilling:"));
-				System.out.println("Stilling oppdatert!");
-			} else if (a.toLowerCase().contains("brukernavn")) {
-				ansattDAO.oppdaterAnsattStilling(showInputDialog("Brukernavn:"), showInputDialog("Ny stilling:"));
-				System.out.println("Stilling oppdatert!");
-			} else
-				System.out.println("Ulivlig input!");
-		} else if (s.toLowerCase().contains("lønn")) {
-			if (a.toLowerCase().contains("id")) {
-				ansattDAO.oppdaterAnsattLonn(Integer.parseInt(showInputDialog("ID:")),
-						BigDecimal.valueOf(Double.parseDouble(showInputDialog("Ny lønn:"))));
-				System.out.println("Lønn oppdatert!");
-			} else if (a.toLowerCase().contains("brukernavn")) {
-				ansattDAO.oppdaterAnsattLonn(showInputDialog("Brukernavn:"),
-						BigDecimal.valueOf(Double.parseDouble(showInputDialog("Ny lønn:"))));
-				System.out.println("Lønn oppdatert!");
-			} else
-				System.out.println("Ulivlig input!");
+		if (str.toLowerCase().contains("an")) {
+
+			String s = showInputDialog("Vil du oppdatere stilling eller lønn?");
+			String a = showInputDialog("Vil du finne ansatt ved ID eller Brukernavn?");
+			if (s.toLowerCase().contains("stilling")) {
+				if (a.toLowerCase().contains("id")) {
+					ansattDAO.oppdaterAnsattStilling(Integer.parseInt(showInputDialog("ID:")),
+							showInputDialog("Ny stilling:"));
+					System.out.println("Stilling oppdatert!");
+
+				} else if (a.toLowerCase().contains("brukernavn")) {
+					ansattDAO.oppdaterAnsattStilling(showInputDialog("Brukernavn:"), showInputDialog("Ny stilling:"));
+					System.out.println("Stilling oppdatert!");
+				} else
+					System.out.println("Ulivlig input!");
+
+			} else if (s.toLowerCase().contains("lønn")) {
+				if (a.toLowerCase().contains("id")) {
+					ansattDAO.oppdaterAnsattLonn(Integer.parseInt(showInputDialog("ID:")),
+							BigDecimal.valueOf(Double.parseDouble(showInputDialog("Ny lønn:"))));
+					System.out.println("Lønn oppdatert!");
+				} else if (a.toLowerCase().contains("brukernavn")) {
+					ansattDAO.oppdaterAnsattLonn(showInputDialog("Brukernavn:"),
+							BigDecimal.valueOf(Double.parseDouble(showInputDialog("Ny lønn:"))));
+					System.out.println("Lønn oppdatert!");
+				} else
+					System.out.println("Ulivlig input!");
+			} else {
+				System.out.println("Ulovlig input!");
+			}
 		} else {
-			System.out.println("Ulovlig input!");
-		}
-		}
-		else {
-			ansattDAO.oppdaterAvdeling(Integer.parseInt(showInputDialog("Ansatt ID:")), Integer.parseInt(showInputDialog("ny avdelingsID:")));
+			ansattDAO.oppdaterAvdeling(Integer.parseInt(showInputDialog("Ansatt ID:")),
+					Integer.parseInt(showInputDialog("ny avdelingsID:")));
 		}
 	}
 }
