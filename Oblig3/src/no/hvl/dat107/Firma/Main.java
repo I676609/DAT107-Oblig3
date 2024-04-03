@@ -15,7 +15,7 @@ public class Main {
 		Boolean kjorer = true;
 		while (kjorer) {
 			String s = showInputDialog(
-					"Hva ønsker du å gjøre?\nFinn an/av (Finner en ansatt/avdeling)\nAlle an (Skriver ut alle ansatte)\nAlle av (Skriver ut ansatte i én avdeling)\nOppdater (For å oppdatere en ansatt)\nLegg til (For å legge til en ny ansatt/avdeling)").toLowerCase();
+					"Hva ønsker du å gjøre?\nFinn an/av (Finner en ansatt/avdeling)\nAvdelinger\nAlle an (Skriver ut alle ansatte)\nAlle av (Skriver ut ansatte i én avdeling)\nOppdater (For å oppdatere en ansatt)\nLegg til (For å legge til en ny ansatt/avdeling)").toLowerCase();
 
 			if (s == null || s.contains("quit") || s.contains("stop")) {
 				kjorer = false;
