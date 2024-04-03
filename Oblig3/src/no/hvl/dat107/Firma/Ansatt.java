@@ -1,4 +1,4 @@
-package no.hvl.dat107.Iterasjon3;
+package no.hvl.dat107.Firma;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -49,7 +49,7 @@ public class Ansatt {
 	public String toString() {
 		return "Ansatt [ansattID=" + ansattID + ", brukernavn=" + brukernavn + ", fornavn=" + fornavn + ", etternavn="
 				+ etternavn + ", ansettelsesDato=" + ansettelsesDato + ", stilling=" + stilling + ", manedslonn="
-				+ manedslonn + "]";
+				+ manedslonn + ", avdeling=" + avdeling.getAvdelingsnavn() + "]";
 	}
 
 	public int getAnsattID() {
@@ -124,5 +124,6 @@ public class Ansatt {
 		System.out.println("AnsettelsesDato: " + ansettelsesDato);
 		System.out.println("Stilling: " + stilling);
 		System.out.println("Månedslønn: " + manedslonn);
+		System.out.println("Avdeling: " + avdeling.getAvdelingsnavn());
 	}
 }

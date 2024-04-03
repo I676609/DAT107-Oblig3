@@ -1,4 +1,4 @@
-package no.hvl.dat107.Iterasjon3;
+package no.hvl.dat107.Firma;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

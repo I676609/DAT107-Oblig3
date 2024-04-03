@@ -1,4 +1,4 @@
-package no.hvl.dat107.Iterasjon3;
+package no.hvl.dat107.Firma;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
