@@ -8,6 +8,7 @@ public class Main {
 	private static AvdelingDAO avdelingDAO;
 
 	public static void main(String[] args) {
+		
 		Boolean kjorer = true;
 		while (kjorer) {
 			ansattDAO = new AnsattDAO();
