@@ -1,6 +1,7 @@
 package no.hvl.dat107.Firma;
 
 import static javax.swing.JOptionPane.showInputDialog;
+
 import java.math.BigDecimal;
 
 public class Main {
@@ -10,7 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 		ansattDAO = new AnsattDAO();
 		avdelingDAO = new AvdelingDAO();
-
+		
 		Boolean kjorer = true;
 		while (kjorer) {
 			String s = showInputDialog(

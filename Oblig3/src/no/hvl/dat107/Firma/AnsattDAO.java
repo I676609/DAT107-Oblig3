@@ -161,4 +161,19 @@ public class AnsattDAO {
 				BigDecimal.valueOf(Double.parseDouble(showInputDialog("Månedslønn:"))),
 				avdelingDAO.finnAvdelingMedID(Integer.parseInt(showInputDialog("AvdelingsID:")))));
 	}
+	public List<Ansatt> alleAnsatteIAvdeling(int avdelingsID) {
+
+		EntityManager em = emf.createEntityManager();
+
+		try {
+			TypedQuery<Ansatt> query = em.createQuery("select a from Ansatt a where a.avdeling.avdelingsID = :avdelingsID",
+					Ansatt.class);
+			query.setParameter("avdelingsID", avdelingsID);
+			return query.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		} finally {
+			em.close();
+		}
+	}
 }
