@@ -9,7 +9,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(schema = "Iterasjon3")
+@Table(schema = "Firma")
 public class Avdeling {
 
 

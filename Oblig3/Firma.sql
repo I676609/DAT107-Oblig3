@@ -1,7 +1,7 @@
 
-DROP SCHEMA IF EXISTS Iterasjon3 CASCADE;
-CREATE SCHEMA Iterasjon3;
-SET search_path TO Iterasjon3;
+DROP SCHEMA IF EXISTS Firma CASCADE;
+CREATE SCHEMA Firma;
+SET search_path TO Firma;
     
 CREATE TABLE Ansatt
 (
@@ -17,8 +17,8 @@ CREATE TABLE Ansatt
 
 CREATE TABLE Avdeling(
 	avdelingsID SERIAL PRIMARY KEY,
-	avdelingsnavn varchar(30),
-	sjef integer,
+	avdelingsnavn varchar(30) UNIQUE,
+	sjef integer UNIQUE,
 	FOREIGN KEY (sjef) REFERENCES Ansatt(ansattID)
 );
 
